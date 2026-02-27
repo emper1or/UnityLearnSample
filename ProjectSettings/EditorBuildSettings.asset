@@ -14,4 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/IvanScene.unity
     guid: 4907f7d96b55abb4ab30bcb66acd8714
+  - enabled: 1
+    path: Assets/Scenes/AlexanderScene.unity
+    guid: 47e4b31fdd62e6e4e8d575afb0e271d9
+  - enabled: 1
+    path: Assets/Scenes/EliseyScene.unity
+    guid: 3a8c7b9b6d5cef046b5bf11c5198a2f7
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
