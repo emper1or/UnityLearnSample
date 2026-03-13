@@ -3,22 +3,16 @@ using System.Collections;
 
 public class EvgeniyScript : SampleScript
 {
-    public float speed = 10f;
-    public Vector3 rotationAngle;
-
-    private bool isRotating = false;
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private Vector3 rotationAngle;
 
     public override void Use()
-    {
-        if (!isRotating)
-        {
-            StartCoroutine(RotateObject());
-        }
+    { 
+        StartCoroutine(RotateObject());
     }
 
     private IEnumerator RotateObject()
     {
-        isRotating = true;
 
         Quaternion initialRotation = transform.rotation;
         Quaternion finalRotation = initialRotation * Quaternion.Euler(rotationAngle);
@@ -27,7 +21,6 @@ public class EvgeniyScript : SampleScript
         if (speed <= 0)
         {
             Debug.LogError("Speed must be a positive value.");
-            isRotating = false;
             yield break;
         }
         
@@ -42,6 +35,5 @@ public class EvgeniyScript : SampleScript
         }
 
         transform.rotation = finalRotation;
-        isRotating = false;
     }
 }
