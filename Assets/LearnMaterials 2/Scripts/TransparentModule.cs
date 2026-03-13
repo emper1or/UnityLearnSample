@@ -6,10 +6,20 @@ using UnityEngine;
 [HelpURL("https://docs.google.com/document/d/1Cmm__cbik5J8aHAI6PPaAUmEMF3wAcNo3rpgzsYPzDM/edit?usp=sharing")]
 public class TransparentModule : MonoBehaviour
 {
-    private float changeSpeed;
+    [SerializeField]
+    [Tooltip("Скорость изменения прозрачности (чем больше, тем быстрее)")]
+    [Min(0.1f)]
+    private float changeSpeed = 1f;
 
-    private float defaultAlpha;
+    [SerializeField]
+    [Tooltip("Альфа-канал по умолчанию (0 = невидимый, 1 = полностью видимый)")]
+    [Range(0f, 1f)]
+    private float defaultAlpha = 1f;
+
     private Material mat;
+
+    [SerializeField]
+    [Tooltip("Переключить обратно к состоянию по умолчанию")]
     private bool toDefault;
 
     private void Start()
