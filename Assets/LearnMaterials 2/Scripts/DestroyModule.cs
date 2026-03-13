@@ -22,7 +22,7 @@ public class DestroyModule : MonoBehaviour
     {
         myTransform = transform;
     }
-
+    [ContextMenu("Activate Module")]
     public void ActivateModule()
     {
         StartCoroutine(DestroyRandomChildObjectCoroutine());

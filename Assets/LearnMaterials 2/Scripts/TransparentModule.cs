@@ -7,21 +7,21 @@ using UnityEngine;
 public class TransparentModule : MonoBehaviour
 {
     [SerializeField]
-    [Tooltip("Скорость изменения прозрачности (чем больше, тем быстрее)")]
+    [Tooltip("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)")]
     [Min(0.1f)]
     private float changeSpeed = 1f;
 
     [SerializeField]
-    [Tooltip("Альфа-канал по умолчанию (0 = невидимый, 1 = полностью видимый)")]
+    [Tooltip("пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ (0 = пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, 1 = пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)")]
     [Range(0f, 1f)]
     private float defaultAlpha = 1f;
 
     private Material mat;
 
     [SerializeField]
-    [Tooltip("Переключить обратно к состоянию по умолчанию")]
+    [Tooltip("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     private bool toDefault;
-
+    [ContextMenu("Activate Module")]
     private void Start()
     {
         mat = GetComponent<Renderer>().material;
