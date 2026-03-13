@@ -21,14 +21,14 @@ public class TransparentModule : MonoBehaviour
     [SerializeField]
     [Tooltip("����������� ������� � ��������� �� ���������")]
     private bool toDefault;
-    [ContextMenu("Activate Module")]
+    
     private void Start()
     {
         mat = GetComponent<Renderer>().material;
         defaultAlpha = mat.color.a;
         toDefault = false;
     }
-
+    [ContextMenu("Activate Module")]
     public void ActivateModule()
     {
         float target = toDefault ? defaultAlpha : 0;
