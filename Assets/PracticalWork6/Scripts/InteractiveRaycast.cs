@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class InteractiveRaycast : MonoBehaviour
 {
-    public GameObject prefab; // Сюда перетащить префаб куба с InteractiveBox
+    public GameObject prefab;
     private InteractiveBox _currentSelected;
 
     void Update()
@@ -12,7 +12,7 @@ public class InteractiveRaycast : MonoBehaviour
         {
             HandleLeftClick();
         }
-        
+
         // Правый клик
         if (Input.GetMouseButtonDown(1))
         {
@@ -39,7 +39,7 @@ public class InteractiveRaycast : MonoBehaviour
                 else if (_currentSelected != clickedBox)
                 {
                     _currentSelected.AddNext(clickedBox);
-                    _currentSelected = null; 
+                    _currentSelected = null;
                 }
             }
         }
@@ -52,7 +52,27 @@ public class InteractiveRaycast : MonoBehaviour
         {
             if (hit.collider.TryGetComponent<InteractiveBox>(out var boxToDelete))
             {
+                ClearReferencesTo(boxToDelete);
+
+                if (_currentSelected == boxToDelete)
+                {
+                    _currentSelected = null;
+                }
+
                 Destroy(boxToDelete.gameObject);
+            }
+        }
+    }
+
+    private void ClearReferencesTo(InteractiveBox target)
+    {
+        InteractiveBox[] allBoxes = FindObjectsOfType<InteractiveBox>();
+
+        foreach (var box in allBoxes)
+        {
+            if (box != target && box.next == target)
+            {
+                box.next = null;
             }
         }
     }
